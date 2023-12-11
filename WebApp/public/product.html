@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="CSS/style.css" />
+
+    <!-- Script Js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.0/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- navbar -->
+      <nav class="navbar">
+        <div class="user-interaction-left">
+          <div class="logo">
+            L<span class="accent">a</span>pp<span class="accent">i</span>e
+          </div>
+        </div>
+        <ul class="links-container">
+          <li style="color: #fab300;" class="link-item" @click="showHomePage" ><a class="link">home</a></li>
+        </ul>
+        <div class="user-interactions">
+          <form @submit.prevent>
+            <input
+              type="search"
+              placeholder="Search..."
+              name="search"
+              id="search-input"
+              v-model="searchText"
+            />
+            <input
+              type="submit"
+              class="search"
+              value="Search"
+              id="search-btn"
+              @click="performSearch"
+            />
+          </form>
+        </div>
+      </nav>
+
+      <!-- HEADER // Home Page -->
+      <section v-if="showHeader">
+        <header class="header-section">
+          <h1 class="header-heading"><span>smart</span> saving's</h1>
+        </header>
+      </section>
+
+      <!-- Products Page -->
+      <section v-if="showProduct" class="product-main">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-lg-11">
+              <div class="row align-items-center">
+                <div class="col-md-10">
+                  <h2>Products</h2>
+                </div>
+              </div>
+              <div class="row mt-4" >
+                <div class="col-lg-3 col-md-3 col-sm-3 mb-4" v-for="laptop in laptops" >
+                    <div class="card">
+                      <img
+                        v-bind:src="laptop.image_url"
+                        class="card-img-top"
+                        alt="Product Name"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">{{laptop.description}}</h5>
+                        <p class="card-text">£<span>{{laptop.price}}</span></p>
+                        <button class="btn-compare" @click="compareLaptops(laptop.id)" >Compare</button>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-center">
+                  <div class="pagination mt-4">
+                    <span  id="previousPage" class="page-link" @click="previousPage" >&larr;</span>
+                    <span id="nextPage" class="page-link" @click="nextPage" >&rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section v-if="showComparison" class="product_comparison">
+        <a class="back-arrow" @click="goBack"><i class="fa fa-arrow-left" style="font-size: 24px"></i></a>
+        <div class="container">
+          <div v-for="laptopDetail in laptopDetails" class="product-details">
+            <img
+              v-bind:src="laptopDetail.image_url"
+              alt="Product Image"
+              class="product-image"
+            />
+            <div class="details">
+              <h2></h2>
+              <p>{{laptopDetail.description}}</p>
+              <!-- Other product details -->
+            </div>
+          </div>
+          <div class="price-comparison">
+            <ul v-for="comparison in comparisonList" class="comparison-list">
+              <li>
+                <a :href="`${comparison.price_url}`" target="_blank">
+                  <img :src="`storeImage/${comparison.store_name}.png`" alt="Site 1" class="site-logo" />
+                  <p>{{comparison.description}}</p>
+                  <p>Price: £<span>{{comparison.price}}</span></p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      
+    </div>
+
+    <!-- Footer Section -->
+    <footer>Made my @Boluwatife Morolari Emmaunel</footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script src="JS/script.js"></script>
+  </body>
+</html>
