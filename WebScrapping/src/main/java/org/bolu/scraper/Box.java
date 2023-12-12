@@ -56,10 +56,11 @@ public class Box extends Scraper {
 
             // Loop through each product card
             for(WebElement productCard : productCards){
-                try{
+                try {
                     String prodDetails = productCard.findElement(By.cssSelector(".p-list-content-wrapper .p-list-title-wrapper h3")).getText();
                     final String productBrand = parseBrand(prodDetails);
                     final String productModel = parseModel(prodDetails);
+                    if (productModel != "Unknown") {
                     final int productYear = parseYear(prodDetails);
                     final String productOperatingSystem = parseOperatingSystem(prodDetails);
                     final String productImageUrl = productCard.findElement(By.cssSelector(".p-list-second-image .p-second-a img")).getAttribute("src");
@@ -73,7 +74,7 @@ public class Box extends Scraper {
                     int productStorage = 0;
                     int productMemory = 0;
 
-                    for(WebElement item: items){
+                    for (WebElement item : items) {
                         productDisplay = parseDisplaySize(item.getText());
                         productProcessor = parseProcessor(item.getText());
                         productStorage = extractStorage(item.getText());
@@ -104,7 +105,6 @@ public class Box extends Scraper {
                         newLaptop.setBrand(productBrand);
                         newLaptop.setModelName(productModel);
                         newLaptop.setReleaseYear(productYear);
-                        newLaptop.setOperatingSystem(productOperatingSystem);
                         existingLaptop = this.getLaptopDao().addLaptop(newLaptop);
 
                         // Create and add variation
@@ -131,6 +131,7 @@ public class Box extends Scraper {
                         // Laptop with the same attributes exists in the database
                         System.out.println("Laptop with similar attributes already exists in the database. Not adding duplicate data.");
                     }
+                }
                 }catch (Exception exx){
                     exx.printStackTrace();
                 }

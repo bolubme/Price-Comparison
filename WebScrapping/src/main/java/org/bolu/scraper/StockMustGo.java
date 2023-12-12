@@ -29,7 +29,7 @@ public class StockMustGo extends Scraper {
                 "https://www.stockmustgo.co.uk/search?sort_by=relevance&q=lenovo+laptops&type=product&filter.p.product_type=Laptops&filter.v.price.gte=&filter.v.price.lte=&page=",
                 "https://www.stockmustgo.co.uk/collections/hp-refurbished-laptops?page="
         };
-        int[] pageLimits = {4, 17, 5};
+        int[] pageLimits = {4, 17, 5}; //{4, 17, 5}
 
         for (int i = 0; i < urls.length; i++) {
             for (int pageNum = 1; pageNum <= pageLimits[i]; pageNum++) {
@@ -89,7 +89,6 @@ public class StockMustGo extends Scraper {
                             newLaptop.setBrand(productBrand);
                             newLaptop.setModelName(productModel);
                             newLaptop.setReleaseYear(productYear);
-                            newLaptop.setOperatingSystem(productOperatingSystem);
                             existingLaptop = this.getLaptopDao().addLaptop(newLaptop);
 
                             // Create and add variation

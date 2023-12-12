@@ -17,6 +17,11 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
     />
 
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+
     <!-- Script Js -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router@3.0.0/dist/vue-router.js"></script>
@@ -143,6 +148,7 @@
       <!-- Main Comparison Page -->
       <div v-if="showComparison">
         <div class="card-wrapper">
+          <a class="back-arrow" @click="goBack"><i class="fa fa-arrow-left"></i></a>
           <div v-for="laptopDetail in laptopDetails" class="card">
             <!-- card left -->
             <div class="product-imgs">
@@ -155,7 +161,9 @@
             <!-- card right -->
             <div class="product-content">
               <h2 class="product-title">{{laptopDetail.model_name}}</h2>
-              <a v-bind:href="laptopDetail.price_url" class="product-link">{{laptopDetail.store_name}}</a>
+              <a v-bind:href="laptopDetail.price_url" class="product-link"
+                >{{laptopDetail.store_name}}</a
+              >
               <div class="product-detail">
                 <h2>about this item:</h2>
                 <p>{{laptopDetail.description}}</p>
@@ -171,19 +179,24 @@
           </div>
         </div>
         <!-- COMPARISON SEARCH -->
-        <div class="container card-comparison" >
-            <h1>Stores Available</h1>
-            <div class="price-comparison">
-              <ul v-for="comparison in comparisonList" class="comparison-list">
-                <li>
-                  <a :href="`${comparison.price_url}`" target="_blank">
-                    <img :src="`storeImage/${comparison.store_name}.png`" alt="Site 1" class="site-logo" />
-                    <p>{{comparison.description}}</p>
-                    <p>Price: £<span>{{comparison.price}}</span></p>
-                  </a>
-                </li>
-              </ul>
-            </div>
+        <div class="container">
+          <h1>Prices</h1>
+          <div v-for="comparison in comparisonList" class="pric-comparison-list">
+            <a :href="`${comparison.price_url}`" target="_blank">
+              <div class="comparison-item">
+                <div class="image-container">
+                  <img :src="`storeImage/${comparison.store_name}.png`" alt="Store Image" />
+                </div>
+                <div class="description">
+                  <h3>Product Title</h3>
+                  <p>
+                    {{comparison.description}}
+                  </p>
+                  <p>Price: £<span>{{comparison.price}}</span></p>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>

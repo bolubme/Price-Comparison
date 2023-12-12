@@ -42,7 +42,6 @@ public class DatabaseTest {
         laptop.setBrand("Apple");
         laptop.setModelName("MacBook");
         laptop.setReleaseYear(2020);
-        laptop.setOperatingSystem("Mac os");
 
         // Add the laptop to the database
         Laptop addedLaptop = laptopDao.addLaptop(laptop);
@@ -55,7 +54,6 @@ public class DatabaseTest {
         assertEquals("Apple", addedLaptop.getBrand(), "Brand should Match");
         assertEquals("MacBook", addedLaptop.getModelName(), "Model should Match");
         assertEquals(2020, addedLaptop.getReleaseYear(), "Release should Match");
-        assertEquals("Mac os", addedLaptop.getOperatingSystem(), "Operating System should Match");
     }
 
 
@@ -107,7 +105,6 @@ public class DatabaseTest {
         laptopToFind.setBrand("Apple");
         laptopToFind.setModelName("MacBook");
         laptopToFind.setReleaseYear(2020);
-        laptopToFind.setOperatingSystem("Mac os");
 
         // Attempt to find the laptop in the database
         Laptop foundLaptop = laptopDao.findLaptop(laptopToFind);
@@ -119,7 +116,6 @@ public class DatabaseTest {
         assertEquals(laptopToFind.getBrand(), foundLaptop.getBrand(), "Brands should match");
         assertEquals(laptopToFind.getModelName(), foundLaptop.getModelName(), "Model names should match");
         assertEquals(laptopToFind.getReleaseYear(), foundLaptop.getReleaseYear(), "Release years should match");
-        assertEquals(laptopToFind.getOperatingSystem(), foundLaptop.getOperatingSystem(), "Operating systems should match");
     }
 
 

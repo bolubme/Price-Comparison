@@ -37,7 +37,7 @@ public class Scraper extends Thread{
      */
     private void init(){
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
+        options.setHeadless(false);
 
         options.addArguments("user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit.537.36 (KHTML, like Gecko) Chrome/119.0.6045.199 Safari/537.36");
 
@@ -159,6 +159,26 @@ public class Scraper extends Thread{
             return "MacBook Air";
         } else if (tmp.contains("hp elite dragonfly")) {
             return "HP Elite Dragonfly";
+        }  else if (tmp.contains("hp elitebook 830")) {
+            return "HP EliteBook 830";
+        }  else if (tmp.contains("hp elitebook 820")) {
+            return "HP EliteBook 820";
+        }  else if (tmp.contains("hp elitebook 840 g9")) {
+            return "HP EliteBook 840 G9";
+        } else if (tmp.contains("hp elitebook 840 g5")) {
+            return "HP EliteBook 840 G5";
+        }  else if (tmp.contains("hp elitebook 840 g3")) {
+            return "HP EliteBook 840 G3";
+        }  else if (tmp.contains("hp elitebook 840 g4")) {
+            return "HP EliteBook 840 G4";
+        }  else if (tmp.contains("hp elitebook 850 g3")) {
+            return "HP EliteBook 850 G3";
+        } else if (tmp.contains("hp elitebook 850 g4")) {
+            return "HP EliteBook 850 G4";
+        }  else if (tmp.contains("hp elitebook 850 g5")) {
+            return "HP EliteBook 850 G5";
+        } else if (tmp.contains("hp elitebook 850 g6")) {
+            return "HP EliteBook 850 G6";
         } else if (tmp.contains("hp elitebook x360")) {
             return "HP EliteBook x360";
         } else if (tmp.contains("hp probook x360")) {
@@ -175,37 +195,118 @@ public class Scraper extends Thread{
             return "HP Spectre x360";
         } else if (tmp.contains("macbook pro")) {
             return "MacBook Pro";
-        } else if (tmp.contains("thinkpad")) {
-            return "ThinkPad";
-        } else if (tmp.contains("ideapad")) {
-            return "IdeaPad";
+        } else if (tmp.contains("thinkpad t440")) {
+            return "ThinkPad T440";
+        } else if (tmp.contains("thinkpad t450")) {
+            return "ThinkPad T450";
+        } else if (tmp.contains("thinkpad t480")) {
+            return "ThinkPad T480";
+        } else if (tmp.contains("thinkpad t470 ultrabook")) {
+            return "ThinkPad T470";
+        } else if (tmp.contains("legion 5")) {
+            return "Legion 5";
+        } else if (tmp.contains("thinkpad x240")) {
+            return "ThinkPad X240";
+        } else if (tmp.contains("ideapad slim 3")) {
+            return "IdeaPad Slim 3";
+        } else if (tmp.contains("ideapad s340")) {
+            return "IdeaPad s340";
+        } else if (tmp.contains("ideapad 320-15ast")) {
+            return "IdeaPad 320 15AST";
+        } else if (tmp.contains("ideapad gaming 3")) {
+            return "IdeaPad Gaming 3";
+        }  else if (tmp.contains("ideapad flex 3 chromebook")) {
+            return "IdeaPad Flex 3 Chromebook";
+        } else if (tmp.contains("thinkpad t470")) {
+            return "ThinkPad T470";
+        } else if (tmp.contains("ideapad flex 3")) {
+            return "IdeaPad Flex 3";
+        } else if (tmp.contains("ideapad slim 3 chromebook")) {
+            return "IdeaPad Slim 3 Chromebook";
+        } else if (tmp.contains("hp stream 11")) {
+            return "HP Stream 11";
+        } else if (tmp.contains("legion slim 5")) {
+            return "Legion Slim 5";
+        } else if (tmp.contains("ideapad slim 5")) {
+            return "IdeaPad Slim 5";
+        } else if (tmp.contains("thinkpad t430")) {
+            return "ThinkPad T430";
+        } else if (tmp.contains("thinkpad p50")) {
+            return "ThinkPad P50";
+        } else if (tmp.contains("thinkpad t450")) {
+            return "ThinkPad T450";
+        } else if (tmp.contains("ideapad duet 3")) {
+            return "IdeaPad Duet 3";
+        } else if (tmp.contains("thinkpad t480")) {
+            return "ThinkPad T480";
+        } else if (tmp.contains("loq")) {
+            return "LOQ";
+        } else if (tmp.contains("thinkpad x280")) {
+            return "ThinkPad X280";
         } else if (tmp.contains("spectre")) {
             return "Spectre";
         } else if (tmp.contains("envy")) {
             return "ENVY";
         } else if (tmp.contains("pavilion")) {
             return "Pavilion";
+        } else if (tmp.contains("elitebook 830 g5")) {
+            return "EliteBook 830 G5";
         } else if (tmp.contains("elitebook")) {
             return "EliteBook";
-        } else if(tmp.contains("victus")){
+        } else if (tmp.contains("victus")) {
             return "Victus";
-        } else if (tmp.contains("omen")) {
-            return "OMEN";
-        } else if (tmp.contains("chromebook")) {
+        } else if (tmp.contains("omen 16")) {
+            return "OMEN 16";
+        }  else if (tmp.contains("omen 17")) {
+            return "OMEN 17";
+        }else if (tmp.contains("chromebook")) {
             return "Chromebook";
         } else if (tmp.contains("stream")) {
             return "Stream";
         } else if (tmp.contains("legion")) {
             return "Legion";
-        } else if (tmp.contains("probook")) {
-            return "Probook";
+        } else if (tmp.contains("probook 455")) {
+            return "Probook 455";
+        } else if (tmp.contains("probook 635")) {
+            return "Probook 635";
+        } else if (tmp.contains("probook 455 g9")) {
+            return "Probook 455 G9";
+        } else if (tmp.contains("probook 440 g9")) {
+            return "Probook 440 G9";
+        } else if (tmp.contains("v15 g3")) {
+            return "V 15 G3";
+        } else if (tmp.contains("v15 g4")) {
+            return "V 15 G4";
+        } else if (tmp.contains("v15 g5")) {
+            return "V 15 G5";
+        } else if (tmp.contains("v14 g3")) {
+            return "V 14 G3";
+        } else if (tmp.contains("v14 g4")) {
+            return "V 14 G4";
+        } else if (tmp.contains("v14 g5")) {
+            return "V 14 G5";
         } else if (tmp.contains("v15")) {
             return "V 15";
         } else if (tmp.contains("v14")) {
             return "V 14";
+        } else if (tmp.contains("lenovo g4")) {
+            return "G4";
+        } else if (tmp.contains("hp 250 g9")) {
+            return "HP 250 G9";
         } else if (tmp.contains("hp 250")) {
             return "HP 250";
-        } else if (tmp.contains("hp 255")) {
+        } else if (tmp.contains("hp 255 g9")) {
+            return "HP 255 G9";
+        } else if (tmp.contains("hp 255 g8")) {
+            return "HP 255 G8";
+        }  else if (tmp.contains("thinkbook 13s g4")) {
+            return "ThinkBook 13s G4";
+        } else if (tmp.contains("thinkbook 13x g2")) {
+            return "ThinkBook 13x G2";
+        } else if (tmp.contains("zbook firefly")) {
+            return "ZBook Firefly";
+        }
+        else if (tmp.contains("hp 255")) {
             return "HP 255";
         } else if (tmp.contains("zbook")) {
             return "ZBook";
@@ -229,16 +330,24 @@ public class Scraper extends Thread{
             return "Gram";
         } else if (tmp.contains("nitro")) {
             return "Nitro";
-        } else if (tmp.contains("legion")) {
-            return "Legion";
         } else if (tmp.contains("ideacentre")) {
             return "IdeaCentre";
-        } else if (tmp.contains("yoga")) {
-            return "Yoga";
-        } else if (tmp.contains("legion")) {
-            return "Legion";
         } else if (tmp.contains("thinkcentre")) {
             return "ThinkCentre";
+        }  else if (tmp.contains("yoga c740-14iml")) {
+            return "Yoga C740- 14iml";
+        }  else if (tmp.contains("yoga s730-13iwl")) {
+            return "Yoga s730-13iwl";
+        } else if (tmp.contains("yoga 7")) {
+            return "Yoga 7";
+        } else if (tmp.contains("yoga 7i")) {
+            return "Yoga 7";
+        }  else if (tmp.contains("yoga 530")) {
+            return "Yoga 530";
+        } else if (tmp.contains("yoga 500-isk")) {
+            return "Yoga 500-isk";
+        } else if (tmp.contains("thinkbook g2")) {
+            return "ThinkBook G2";
         } else if (tmp.contains("v series")) {
             return "V Series";
         } else if (tmp.contains("t series")) {
@@ -251,10 +360,103 @@ public class Scraper extends Thread{
             return "S Series";
         } else if (tmp.contains("x series")) {
             return "X Series";
+        } else if (tmp.contains("legion 7i")) {
+            return "Legion 7i";
+        } else if (tmp.contains("thinkpad x1 carbon")) {
+            return "ThinkPad X1 Carbon";
+        } else if (tmp.contains("thinkpad x1 yoga")) {
+            return "ThinkPad X1 Yoga";
+        }  else if (tmp.contains("ideapad s340")) {
+            return "IdeaPad S340";
+        } else if (tmp.contains("ideapad 510s")) {
+            return "IdeaPad 510s";
+        } else if (tmp.contains("ideapad 330")) {
+            return "IdeaPad 330";
+        } else if (tmp.contains("ideapad s540")) {
+            return "IdeaPad S540";
+        } else if (tmp.contains("ideapad s130")) {
+            return "IdeaPad S130";
+        } else if (tmp.contains("ideapad 5")) {
+            return "IdeaPad 5";
+        } else if (tmp.contains("ideapad 5i")) {
+            return "IdeaPad 5i";
+        } else if (tmp.contains("ideapad 5 pro")) {
+            return "IdeaPad 5 Pro";
+        } else if (tmp.contains("lenovo ideapad gaming 3")) {
+            return "IdeaPad Gaming 3";
+        }  else if (tmp.contains("pavilion gaming")) {
+            return "Pavilion Gaming";
+        } else if (tmp.contains("omen by hp")) {
+            return "OMEN by HP";
+        } else if (tmp.contains("spectre x360")) {
+            return "Spectre x360";
+        } else if (tmp.contains("envy x360")) {
+            return "ENVY x360";
+        } else if (tmp.contains("pavilion x360")) {
+            return "Pavilion x360";
+        } else if (tmp.contains("spectre folio")) {
+            return "Spectre Folio";
+        } else if (tmp.contains("hp zbook")) {
+            return "HP ZBook";
+        } else if (tmp.contains("hp chromebook")) {
+            return "HP Chromebook";
+        } else if (tmp.contains("hp notebook")) {
+            return "HP Notebook";
+        } else if (tmp.contains("legion 5 pro")) {
+            return "Legion 5 Pro";
+        } else if (tmp.contains("legion 7")) {
+            return "Legion 7";
+        } else if (tmp.contains("legion y740")) {
+            return "Legion Y740";
+        } else if (tmp.contains("legion y540")) {
+            return "Legion Y540";
+        } else if (tmp.contains("legion y545")) {
+            return "Legion Y545";
+        } else if (tmp.contains("ideapad s145")) {
+            return "IdeaPad S145";
+        } else if (tmp.contains("ideapad s340")) {
+            return "IdeaPad S340";
+        } else if (tmp.contains("ideapad l340")) {
+            return "IdeaPad L340";
+        } else if (tmp.contains("ideapad c340")) {
+            return "IdeaPad C340";
+        } else if (tmp.contains("ideapad l340 gaming")) {
+            return "IdeaPad L340 Gaming";
+        } else if (tmp.contains("ideapad 330")) {
+            return "IdeaPad 330";
+        } else if (tmp.contains("ideapad 330s")) {
+            return "IdeaPad 330s";
+        } else if (tmp.contains("ideapad 130")) {
+            return "IdeaPad 130";
+        } else if (tmp.contains("ideapad 320")) {
+            return "IdeaPad 320";
+        } else if (tmp.contains("ideapad 320s")) {
+            return "IdeaPad 320s";
+        } else if (tmp.contains("omen")) {
+            return "OMEN";
+        } else if (tmp.contains("probook")) {
+            return "Probook";
+        } else if (tmp.contains("thinkbook")) {
+            return "ThinkBook";
+        } else if (tmp.contains("yoga")) {
+            return "Yoga";
+        } else if (tmp.contains("ideapad 1")) {
+            return "IdeaPad 1";
+        } else if (tmp.contains("ideapad 2")) {
+            return "IdeaPad 2";
+        } else if (tmp.contains("ideapad 3")) {
+            return "IdeaPad 3";
+        } else if (tmp.contains("ideapad 4")) {
+            return "IdeaPad 4";
+        }  else if (tmp.contains("ideapad 5")) {
+            return "IdeaPad 5";
+        } else if (tmp.contains("ideapad")) {
+            return "IdeaPad";
         } else {
             return "Unknown";
         }
     }
+
 
     public static double extractNumberFromString(String input) {
         Pattern pattern = Pattern.compile("(\\d+(\\.\\d+)?)");

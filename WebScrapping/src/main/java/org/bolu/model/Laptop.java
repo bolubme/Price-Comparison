@@ -24,9 +24,6 @@ public class Laptop {
     @Column(name = "release_year")
     private int releaseYear;
 
-    @Column(name = "operating_system")
-    private String operatingSystem;
-
     @Column(name = "description")
     private String description;
 
@@ -70,14 +67,6 @@ public class Laptop {
         this.releaseYear = releaseYear;
     }
 
-    public String getOperatingSystem() {
-        return operatingSystem;
-    }
-
-    public void setOperatingSystem(String operatingSystem) {
-        this.operatingSystem = operatingSystem;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -102,7 +91,6 @@ public class Laptop {
                 ", brand='" + brand + '\'' +
                 ", modelName='" + modelName + '\'' +
                 ", releaseYear=" + releaseYear +
-                ", operatingSystem='" + operatingSystem + '\'' +
                 ", description='" + description + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
                 '}';

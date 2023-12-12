@@ -35,7 +35,7 @@ public class EbuyerScraper extends Scraper {
                 "&q=lenovo",
                 "&q=hp"
         };
-        int[] pageLimits = { 3, 6, 6 }; // Limits for Apple, Lenovo, HP respectively
+        int[] pageLimits = { 3,6,6}; // Limits for Apple, Lenovo, HP respectively {3, 6, 6}
 
         for (int i = 0; i < urls.length; i++) {
             for (int pageNum = 1; pageNum <= pageLimits[i]; pageNum++) {
@@ -119,7 +119,6 @@ public class EbuyerScraper extends Scraper {
                             newLaptop.setBrand(productBrand);
                             newLaptop.setModelName(productModel);
                             newLaptop.setReleaseYear(productYear);
-                            newLaptop.setOperatingSystem(productOperatingSystem);
                             existingLaptop = this.getLaptopDao().addLaptop(newLaptop);
 
                             // Create and add variation

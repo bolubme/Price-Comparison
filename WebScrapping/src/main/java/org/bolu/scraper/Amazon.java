@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import javax.crypto.spec.PSource;
 import java.awt.*;
 import java.awt.desktop.SystemEventListener;
 import java.util.ArrayList;
@@ -50,6 +51,7 @@ public class Amazon extends Scraper{
     @Override
     public void run(){
         int totalPages = 17;
+        // 17
         ArrayList<ArrayList<String>> allURLs = new ArrayList<>();
         allURLs.add(generateAmazonURLs("Apple", totalPages));
         allURLs.add(generateAmazonURLs("Lenovo", totalPages));
@@ -117,7 +119,6 @@ public class Amazon extends Scraper{
                                 newLaptop.setDescription(prodDetails);
                                 newLaptop.setImageUrl(productImageUrl);
 
-                                System.out.println("-------------------------------------------------------------------------");
 
                                 Laptop existingLaptop = this.getLaptopDao().findLaptop(newLaptop);
 
@@ -126,7 +127,6 @@ public class Amazon extends Scraper{
                                     newLaptop.setBrand(productBrand);
                                     newLaptop.setModelName(productModel);
                                     newLaptop.setReleaseYear(productYear);
-                                    newLaptop.setOperatingSystem(productOperatingSystem);
                                     existingLaptop = this.getLaptopDao().addLaptop(newLaptop);
 
                                     // Create and add variation

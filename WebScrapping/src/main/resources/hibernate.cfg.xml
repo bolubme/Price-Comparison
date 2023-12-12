@@ -4,10 +4,9 @@
     <session-factory>
 
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost/price_comparison?serverTimezone=UTC</property>
-
+<!--        <property name="hibernate.connection.url">jdbc:mysql://localhost/price_website?serverTimezone=UTC</property>-->
 <!--        for testing -->
-<!--        <property name="hibernate.connection.url">jdbc:mysql://localhost/price_comparison_test?serverTimezone=UTC</property>-->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/price_comparison_test?serverTimezone=UTC</property>
 
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"/>

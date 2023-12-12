@@ -9,7 +9,7 @@ const connectionPool = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "",
-    database: "price_comparison",
+    database: "price_website",
     debug: false
 });
 

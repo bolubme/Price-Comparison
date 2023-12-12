@@ -106,7 +106,6 @@ public class LaptopsDirect extends Scraper {
                         newLaptop.setBrand(productBrand);
                         newLaptop.setModelName(productModel);
                         newLaptop.setReleaseYear(productYear);
-                        newLaptop.setOperatingSystem(productOperatingSystem);
                         existingLaptop = this.getLaptopDao().addLaptop(newLaptop);
 
                         // Create and add variation
