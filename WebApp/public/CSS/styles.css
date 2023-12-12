@@ -384,6 +384,12 @@ header .navbar {
   overflow-y: scroll;
 }
 
+.disabled-arrow {
+  opacity: 0.5; 
+  pointer-events: none; 
+  cursor: not-allowed; 
+}
+
 /* Media Queries */
 @media screen and (min-width: 992px) {
   .product-items {

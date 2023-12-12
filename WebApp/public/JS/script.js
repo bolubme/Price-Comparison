@@ -16,8 +16,8 @@ let app = new Vue({
   },
   methods: {
     searchByBrand(brand) {
-      this.searchText = brand; 
-      this.performSearch(); 
+      this.searchText = brand;
+      this.performSearch();
     },
     showProductPage() {
       this.showHeader = false;
@@ -93,7 +93,9 @@ let app = new Vue({
 
       this.performSearch();
 
-      if (this.laptops.length === 0) {
+      if ((this.currentPageNum * this.numOfItemsPerPage) < this.numOfLaptops) {
+        this.performSearch();
+      } else {
         console.log("NO MORE PAGES");
       }
     },
@@ -104,7 +106,10 @@ let app = new Vue({
 
       this.performSearch();
 
-      if (this.currentPageNum < 1) {
+      if (this.currentPageNum >= 0) {
+        this.performSearch();
+      } else {
+        console.log("NO PREVIOUS PAGE");
       }
     },
 
