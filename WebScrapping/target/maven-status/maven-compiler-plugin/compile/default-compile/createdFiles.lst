@@ -1,0 +1,13 @@
+org/bolu/model/Comparison.class
+org/bolu/scraper/Box.class
+org/bolu/config/AppConfiguration.class
+org/bolu/scraper/StockMustGo.class
+org/bolu/model/LaptopDao.class
+org/bolu/model/LaptopVariation.class
+org/bolu/model/Laptop.class
+org/bolu/scraper/Amazon.class
+org/bolu/scraper/ScraperManager.class
+org/bolu/scraper/Scraper.class
+org/bolu/scraper/LaptopsDirect.class
+org/bolu/scraper/EbuyerScraper.class
+org/bolu/Application.class
