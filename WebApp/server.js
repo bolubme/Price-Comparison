@@ -92,9 +92,14 @@ app.get("/comparisonSearch", async (req, res) => {
   let [display] = getDisplay(req.url)
   let [release_year] = getYear(req.url)
 
-  //TODO
-  //Retrieve total number of products
-  let prodCount = await db.getTotalProductCount();
+  let searchCount = await db.getComparisonSearchCount(
+    modelName,
+    storage,
+    memory,
+    display,
+    processor,
+    release_year
+);
 
   //Retrieve all of the products matching the search to compare all relevant products
   let laptops = await db.getComparisonSearch(
@@ -110,7 +115,7 @@ app.get("/comparisonSearch", async (req, res) => {
 
   //Combine into a single object and send back to client
   let returnObj = {
-    count: prodCount,
+    count: searchCount,
     data: laptops,
   };
   res.json(returnObj);

@@ -1,3 +1,6 @@
+/**
+ * Importing necessary modules and setting up testing environment
+ */
 const app = require("../server");
 const db = require("../client");
 
@@ -8,7 +11,6 @@ const should = chai.should();
 const chaiHttp = require("chai-http");
 chai.use(chaiHttp);
 
-
 function logToTerminal(message) {
   if (process.env.NODE_ENV !== "test") {
     return;
@@ -16,6 +18,8 @@ function logToTerminal(message) {
   console.log(`[Test Log]: ${message}`);
 }
 
+
+// Testing API Endpoints
 describe("API Endpoints Test", () => {
   // Test GET / endpoint
   describe('/GET home page', () => {
@@ -44,7 +48,7 @@ describe("API Endpoints Test", () => {
     });
   });
 
-
+// Test GET /comparison by id end point 
   describe('/GET comparison by ID', () => {
     it('should get comparison data for a valid ID', (done) => {
       chai.request(app)
@@ -67,6 +71,7 @@ describe("API Endpoints Test", () => {
 
   });
 
+  // Test GET /comparisonSearch endpoint
   describe('/GET comparisonSearch', () => {
     it('should search for laptops based on provided parameters', (done) => {
       chai.request(app)
@@ -84,8 +89,9 @@ describe("API Endpoints Test", () => {
 });
 
 
-
+// Testing Database Functions
 describe("Database Functions", () => {
+  // Test function to get total product count
   describe("getTotalProductCount", () => {
     it("should return total count of products as a number greater than 500", async () => {
       const count = await db.getTotalProductCount();
@@ -95,6 +101,7 @@ describe("Database Functions", () => {
   });
 
 
+  // Test function to get laptops from  db 
   describe("getLaptops", () => {
     it("should retrieve all laptops as an object ", async () => {
       const laptops = await db.getLaptops();

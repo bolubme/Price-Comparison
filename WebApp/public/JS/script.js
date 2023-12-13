@@ -9,6 +9,7 @@ let app = new Vue({
     laptopDetails: [],
     comparison: [],
     comparisonList: [],
+    comparisonNum: 0,
     searchText: "",
     currentPageNum: 0,
     numOfItemsPerPage: 4,
@@ -53,9 +54,9 @@ let app = new Vue({
       let processor = this.comparison[0].processor;
       let release_year = this.comparison[0].release_year;
       let searchUrl = `/comparisonSearch?model_name=${modelName}&storage=${storage}&memory=${memory}&processor=${processor}&display=${display}&release_year=${release_year}`;
-      console.log(searchUrl)
       let result = await axios.get(searchUrl);
       appInstance.comparisonList = result.data.data;
+      appInstance.comparisonNum = result.data.count;
     },
 
     // Get all the Laptops from the web service using Axios
@@ -67,6 +68,7 @@ let app = new Vue({
         const offset =
           appInstance.currentPageNum * appInstance.numOfItemsPerPage;
         const searchUrl = `/search?model_name=${appInstance.searchText}&num_items=${appInstance.numOfItemsPerPage}&offset=${offset}`;
+        console.log(searchUrl);
 
 
         // Store current search parameters for later use
@@ -103,16 +105,15 @@ let app = new Vue({
     previousPage() {
       this.currentPageNum--;
       console.log(this.currentPageNum);
-
       this.performSearch();
-
       if (this.currentPageNum < 1) {
+        console.log("less than one")
       }
     },
+    
 
     goBack(event) {
       event.preventDefault();
-
       if (this.showComparison) {
         this.showProductPage();
       }

@@ -39,7 +39,6 @@ module.exports.getTotalProductCountBySearch = async (descrip) => {
     return numCount[0]["COUNT(*)"];
 }
 
-
 /**
  * Retrieves comparison search results based on criteria.
  * @param {string} modelName - The model name to search for.
@@ -89,6 +88,41 @@ WHERE
     // Run query
     return executeSQLQuery(querySql);
 }
+
+/**
+ * Retrieves comparison search results count based on criteria.
+ * @param {string} modelName - The model name to search for.
+ * @param {string} storage - The storage size.
+ * @param {string} memory - The memory size.
+ * @param {number} release_year - The release year of the laptop.
+ * @returns {Promise<number>} Promise that resolves to the count of products matching the search criteria.
+ */
+module.exports.getComparisonSearchCount = async (modelName, storage, memory, display, processor, release_year) => {
+    let querySql = `
+    SELECT COUNT(*) AS count
+    FROM 
+        comparison 
+    INNER JOIN 
+        laptop_variations ON comparison.laptop_variation_id = laptop_variations.id
+    INNER JOIN 
+        laptop ON laptop_variations.laptop_id = laptop.id 
+    WHERE 
+        laptop.model_name LIKE "%${modelName}%"
+        AND laptop_variations.processor LIKE "%${processor}%"
+        AND laptop_variations.display LIKE "%${display}%"
+        AND laptop_variations.storage = ${storage}
+        AND laptop_variations.memory = ${memory}
+        AND laptop.release_year = ${release_year}
+    `;
+
+    try {
+        const result = await executeSQLQuery(querySql);
+        return result[0].count;
+    } catch (error) {
+        throw new Error(`Error in getComparisonSearchCount: ${error.message}`);
+    }
+};
+
 
 
 /**
