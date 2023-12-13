@@ -20,37 +20,6 @@ app.get("/", (req, res) => {
   });
 
 
-
-
-  
-/**
- * GET endpoint to retrieve a list of laptops with pagination.
- */
-app.get("/laptops", async (req, res) => {
-  try {
-    // Get number of items and offset for pagination
-    let [numOfItems, offset] = getNumOfItemsOffset(req.url);
-
-    // Get the total number of products for pagination
-    let prodCount = await db.getTotalProductCount();
-
-    // Get all the products
-    let laptops = await db.getLaptops(numOfItems, offset);
-
-    // Prepare the response object
-    let Obj = {
-      count: prodCount,
-      data: laptops,
-    };
-
-    // Send the response back to the client
-    res.json(Obj);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-
 /**
  * GET endpoint to search for laptops based on provided parameters.
  */
@@ -72,90 +41,6 @@ app.get("/search", async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-});
-
-/**
- * Handles the search endpoint for laptops based on a description.
- * @param {import('express').Request} req - The request object containing URL parameters.
- * @param {import('express').Response} res - The response object to send the search results.
- * @returns {Promise<void>} - A promise resolving to undefined.
- */
-app.get("/search/*", async (req, res) => {
-  try {
-    let [numOfItems, offset] = getNumOfItemsOffset(req.url);
-
-    const descrip = req.params[0];
-
-    db.searchLaptop(descrip, numOfItems, offset)
-      .then((searchResults) => {
-        res.json(searchResults);
-      })
-      .catch((error) => console.log(error.message));
-  } catch (error) {
-    console.log(error.message);
-    res.status(500).json({ error: "An error occurred" });
-  }
-});
-
-
-/**
- * Retrieves laptop information based on the provided ID or searches laptops based on model name.
- * @param {import('express').Request} req - The request object containing URL parameters.
- * @param {import('express').Response} res - The response object to send the retrieved laptop information.
- * @returns {void} - No return value.
- */
-app.get("/laptops/*", (req, res) => {
-  const pathEnd = getPathEnd(req.url);
-
-  let regEx = new RegExp("^[0-9]+$");
-  if (regEx.test(pathEnd)) {
-    db.getLaptop(pathEnd)
-      .then((laptop) => {
-        res.json(laptop);
-      })
-      .catch((error) => console.log(error.message));
-  } else if (pathEnd === "search") {
-    let [numOfItems, offset] = getNumOfItemsOffset(req.url);
-    let [modelName] = getModel(req.url);
-
-    const pathEnd = getPathEnd(req.url);
-
-    db.searchLaptopByModel(modelName, numOfItems, offset)
-      .then((searchResults) => {
-        res.json(searchResults);
-      })
-      .catch((error) => console.log(error.message));
-  } else {
-    res.status(HTTP_STATUS.NOT_FOUND);
-    res.send(
-      "{ERROR: Laptop ID: '" +
-        getPathEnd(req.url) +
-        "', from URL: '" +
-        req.url +
-        "' is not valid}"
-    );
-  }
-});
-
-
-/**
- * Retrieves comparison data for laptops.
- * @param {import('express').Request} req - The request object containing URL parameters.
- * @param {import('express').Response} res - The response object to send the comparison data.
- * @returns {Promise<void>} - A promise resolving to undefined.
- */
-app.get("/comparison", async (req, res) => {
-  let [numOfItems, offset] = getNumOfItemsOffset(req.url);
-
-  let prodCount = await db.getTotalProductCount();
-
-  let laptops = await db.getComparisons(numOfItems, offset);
-
-  let returnObj = {
-    count: prodCount,
-    data: laptops,
-  };
-  res.json(returnObj);
 });
 
 
@@ -207,6 +92,7 @@ app.get("/comparisonSearch", async (req, res) => {
   let [display] = getDisplay(req.url)
   let [release_year] = getYear(req.url)
 
+  //TODO
   //Retrieve total number of products
   let prodCount = await db.getTotalProductCount();
 
@@ -236,6 +122,8 @@ app.get("/comparisonSearch", async (req, res) => {
  */
 app.listen(8000);
 console.log("Server listening on port 8000");
+
+module.exports = app;
 
 
 /**

@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-12 text-center">
+          <div class="pagination mt-4">
+            <span id="previousPage" class="page-link" :class="{ 'disabled-arrow': currentPageNum === 0 }"  @click="currentPageNum > 0 ? previousPage() : null"
+              >&larr;</span
+            >
+            <span id="nextPage" class="page-link" :class="{ 'disabled-arrow': (currentPageNum * numOfItemsPerPage) + numOfItemsPerPage >= numOfLaptops }" @click="(currentPageNum * numOfItemsPerPage) + numOfItemsPerPage < numOfLaptops ? nextPage() : null"
+              >&rarr;</span
+            >
+          </div>
+        </div>
+      </div>
+    <script>
+            nextPage() {
+      this.currentPageNum++;
+      console.log(this.currentPageNum);
+
+      this.performSearch();
+
+      if ((this.currentPageNum * this.numOfItemsPerPage) < this.numOfLaptops) {
+        this.performSearch();
+      } else {
+        console.log("NO MORE PAGES");
+      }
+    },
+
+    previousPage() {
+      this.currentPageNum--;
+      console.log(this.currentPageNum);
+
+      this.performSearch();
+
+      if (this.currentPageNum >= 0) {
+        this.performSearch();
+      } else {
+        console.log("NO PREVIOUS PAGE");
+      }
+    },
+    </script>
+</body>
+</html> -->

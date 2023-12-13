@@ -16,8 +16,8 @@ let app = new Vue({
   },
   methods: {
     searchByBrand(brand) {
-      this.searchText = brand;
-      this.performSearch();
+      this.searchText = brand; 
+      this.performSearch(); 
     },
     showProductPage() {
       this.showHeader = false;
@@ -53,6 +53,7 @@ let app = new Vue({
       let processor = this.comparison[0].processor;
       let release_year = this.comparison[0].release_year;
       let searchUrl = `/comparisonSearch?model_name=${modelName}&storage=${storage}&memory=${memory}&processor=${processor}&display=${display}&release_year=${release_year}`;
+      console.log(searchUrl)
       let result = await axios.get(searchUrl);
       appInstance.comparisonList = result.data.data;
     },
@@ -66,6 +67,7 @@ let app = new Vue({
         const offset =
           appInstance.currentPageNum * appInstance.numOfItemsPerPage;
         const searchUrl = `/search?model_name=${appInstance.searchText}&num_items=${appInstance.numOfItemsPerPage}&offset=${offset}`;
+
 
         // Store current search parameters for later use
         const currentSearchText = appInstance.searchText;
@@ -93,9 +95,7 @@ let app = new Vue({
 
       this.performSearch();
 
-      if ((this.currentPageNum * this.numOfItemsPerPage) < this.numOfLaptops) {
-        this.performSearch();
-      } else {
+      if (this.laptops.length === 0) {
         console.log("NO MORE PAGES");
       }
     },
@@ -106,10 +106,7 @@ let app = new Vue({
 
       this.performSearch();
 
-      if (this.currentPageNum >= 0) {
-        this.performSearch();
-      } else {
-        console.log("NO PREVIOUS PAGE");
+      if (this.currentPageNum < 1) {
       }
     },
 

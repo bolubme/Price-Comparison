@@ -19,11 +19,7 @@ const connectionPool = mysql.createPool({
  */
 module.exports.getTotalProductCount = async ()=> {
     const sqlQuery = "SELECT COUNT(*) FROM laptop"
-
-    
     let numCount = await executeSQLQuery(sqlQuery);
-
-
     return numCount[0]["COUNT(*)"];
 }
 
@@ -42,33 +38,6 @@ module.exports.getTotalProductCountBySearch = async (descrip) => {
     let numCount = await executeSQLQuery(sqlQuery);
     return numCount[0]["COUNT(*)"];
 }
-
-
-/**
- * Retrieves all laptops.
- * @param {object} response - The response object.
- * @returns {Promise<string>} Promise that resolves to a stringified result.
- */
-exports.getAllLaptops = (response) => {
-    return new Promise((resolve, reject) => {
-        // SQL query to select all laptops
-        let querySql = "SELECT * FROM laptop";
-
-        // Execute query 
-        connectionPool.query(querySql, (err, result) => {
-            if (err) { // Check for errors
-                let errMsg = "{Error: " + err + "}";
-                console.error(errMsg);
-                response.status(400).json(errMsg);
-                reject(errMsg);
-            } else { // Return result using JSON format 
-                let resultString = JSON.stringify(result);
-                response.send(resultString);
-                resolve(resultString);
-            }
-        });
-    });
-};
 
 
 /**
@@ -163,7 +132,7 @@ module.exports.getLaptops = async (numOfItems, offset) => {
     let querySql = "SELECT * FROM laptop";
 
     if (numOfItems !== undefined && offset !== undefined) {
-        querySql += `ORDER BY laptop.id LIMIT ${numOfItems} OFFSET ${offset}`;
+        querySql += ` ORDER BY laptop.id LIMIT ${numOfItems} OFFSET ${offset}`;
 
         try {
             const result = await executeSQLQuery(querySql);
