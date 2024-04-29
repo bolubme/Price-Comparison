@@ -2,9 +2,15 @@
 
 This project aims to simplify laptop shopping by providing a concise price comparison website. It scrapes data from Amazon, Ebuyer, Laptops Direct, Box, and StockMustGo, focusing on Apple, HP, and Lenovo laptops. Key features include:
 
-Homepage: Highlights top laptops and deals, with a user-friendly search function.
-Product Listings: Clear display of searched products.
-Price Comparison: Real-time comparison of the same laptop across retailers.
+- Homepage: Highlights top laptops and deals, with a user-friendly search function.
+
+- Product Listings: Clear display of searched products.
+
+- Price Comparison: Real-time comparison of the same laptop across retailers.
+
+
+
+
 Technologies Used:
 
 Spring: For dependency injection and managing dependencies.
