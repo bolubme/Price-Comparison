@@ -1,23 +1,19 @@
-Price Comparison Website
+<h1>Price Comparison Website</h1>
 
-Introduction
-In today's digital era, the abundance of laptop options across retailers overwhelms consumers, hindering informed decisions. To simplify this process, I've developed a concise laptop price comparison website. Scraping data from Amazon, Ebuyer, Laptops Direct, Box, and StockMustGo. I focused on Apple, HP, and Lenovo laptops.
-The website's core features are:
-Homepage: Featuring highlighted laptops and current deals, along with a user-friendly search function.
-Product Listings: A clear display of searched products.
-Price Comparison: Real-time comparison of the same laptop across the five retailers
+This project aims to simplify laptop shopping by providing a concise price comparison website. It scrapes data from Amazon, Ebuyer, Laptops Direct, Box, and StockMustGo, focusing on Apple, HP, and Lenovo laptops. Key features include:
 
-Project Description
-Technologies Used
-Spring: Employed for dependency injection and managing dependencies within the project.
-Maven: Facilitated dependency management for the project.
-Selenium: Utilized for web scraping data from Amazon, Ebuyer, LaptopsDirect, Box, and StockMustGo.
-Hibernate: Employed to store scraped laptop data efficiently into a MySQL database.
-Node.js: Leveraged with RESTful APIs for retrieving laptop data stored in the MySQL database.
-Ajax: Integrated the backend with the frontend website for seamless data communication.
-Vue.js: Implemented most of the frontend functionalities, providing an interactive user interface.
+Homepage: Highlights top laptops and deals, with a user-friendly search function.
+Product Listings: Clear display of searched products.
+Price Comparison: Real-time comparison of the same laptop across retailers.
+Technologies Used:
 
-The scraping process involved extracting data from five different website utilizing threads to retrieve data asynchronously. By doing this I was able to accumulate over 500 laptops.
-The collected data was structured and stored efficiently in a MySQL database using Hibernate. The database architecture employed normalization and was structured to store information on laptop details, Laptop variations and Comparison details. Node.js was employed to create a backend server that communicates with the MySQL database through RESTful APIs. This helped to retrieve data seamlessly for the frontend, where I implemented Vue.js.
+Spring: For dependency injection and managing dependencies.
+Maven: Facilitates dependency management.
+Selenium: Web scraping from various retailers.
+Hibernate: Efficient storage of scraped data in MySQL.
+Node.js: Backend server for communication with MySQL through RESTful APIs.
+Ajax: Integrates backend with frontend for data communication.
+Vue.js: Implements most frontend functionalities for an interactive user interface.
+Scraping involved asynchronous data retrieval from five websites, resulting in over 500 laptops. Data was structured and stored efficiently in a normalized MySQL database, categorizing laptop details, variations, and comparison data. Node.js facilitates seamless data retrieval from the backend to the frontend, powered by Vue.js.
 
 ![Alt text](<Screen Shot 2023-12-13 at 3.28.37 AM.png>) ![Alt text](<Screen Shot 2023-12-13 at 3.28.28 AM.png>) ![Alt text](<Screen Shot 2023-12-13 at 3.28.45 AM.png>) ![Alt text](<Screen Shot 2023-12-13 at 3.28.16 AM.png>)
